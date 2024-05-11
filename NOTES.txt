@@ -1,0 +1,85 @@
+                                                          11-05-2024
+
+
+     //---Accessing file using file system in Synchronous manner
+ ----------------------------------------------------------
+ let fs=require('fs')
+
+ 1--//creating a file using file system
+
+fs.writeFileSync('name of file u want to create','data u want to enter')
+
+2--// read a file using file system
+
+let data=fs.readFileSync('name of the file whose data u want to read')
+console.log(data.toString())   
+
+//we use to string because by default data is present in  buffer form so to convert it into string we use toString()
+
+3--// update
+
+fs.writeFileSync('name of file','updated data')
+
+//delete
+
+fs.unlinkSync('name of file to be deleted')
+------------------------------------------------------------------------------------------------------
+
+//--Accessing file using file system in ASynchronous manner
+----------------------------------------------------------
+let fs = require('fs')
+
+1---// creating a file using file system
+
+fs.writeFile('name of file','any data',(err)=>{
+      if(err) throw err
+      console.log("file created")
+})
+
+2---// read a file using file system
+
+// fs.readFile('name of file',(err,data)=>{    two parameters passed here
+//      if(err) throw err
+//      console.log(data.toString())
+// })
+
+3--// update
+
+// fs.writeFile('name of same file created',updated data',(err)=>{
+//    if(err) throw err
+//    console.log("data updated")
+// })
+
+4--//delete
+
+// fs.unlink('name of file to be deleted',(err)=>{
+//    if(err) throw err
+//       console.log("file deleted")
+// })
+     
+5--//rename--
+
+fs.rename('name of file','name of rename file',(err)=>{
+      if(err) throw err
+      console.log("file renamed")
+})
+
+----------------------------------------------------------------------------------------------------------
+
+Creating server using nodejs
+-----------------------------
+
+let http=require('http')
+let server=http.createServer((req,res)=>{   
+     res.end('hello guys')
+})
+server.listen(7000,()=>{
+   console.log("server is running at portno:6000")
+})
+
+fixed parameters
+7000-portno.
+req-request-- client to server
+res-response--server to client                                                     
+
+                                       
