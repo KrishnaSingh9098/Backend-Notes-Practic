@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "nodemon ./index.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "give-me-a-joke": "^0.5.1"
+    "express": "^4.19.2",
+    "give-me-a-joke": "^0.5.1",
+    "nodemon": "^3.1.0"
   }
 }

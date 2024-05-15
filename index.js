@@ -43,6 +43,8 @@
 
 
 /// creating our own Web server page   ///
+//  END = server  se response dene ke kaam me aata h client ke
+
 
 // let http =require('http')
 // //console.log(http,'TUmse nhi HOga')
@@ -54,4 +56,29 @@
 // })
 
 
+
+/// Creating and taking responsne from server using express  //
+
+const express = require('express')
+let app = express()
+let port = 4500
+
+app.get('/',(req,res)=>{
+res.send('Welcome to our Webpage')
+})
+app.get('/chotu',(req,res)=>{
+    res.send('<h2>Chota patakha Don</h2>')
+    })
+
+    app.get('/chIO',(req,res)=>{
+       res.send('<BUTTON>Chota Don</BUTTON>')
+       })
+
+       app.get('*',(req,res)=>{
+          res.send('GHAR JAO BETA')
+          })
+
+app.listen(port,()=>{
+console.log('Your server is running i port Node. 4500')
+})
 
