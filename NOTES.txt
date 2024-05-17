@@ -139,3 +139,60 @@ npm i nodemon : for taking exact response from the server and your wevbpage
 
 #Static ROuting
 #Dynamic Routing  
+
+
+
+--------------------------------------------------- 14-05-2024 ---------------------------------------------
+
+       express js--framework of node js
+
+      to install express---in terminal
+            ---npm i express
+
+  //routing
+
+---interview question--
+
+get--less secure,km data bhej skte hai iske saath
+post--more secure,more data bhej skte hai iske saath
+
+generally get is used to fetch data and post is use to send data but we can also use get to send data 
+but due to security purpose and it send less data we dont use it
+--------
+
+--------------------------------------------------------
+//creating server using express js
+//------------------------
+
+let express=require('express')
+let app=express()
+
+ ## -----Static Routing---------- ##
+
+app.get('/',(req,res)=>{   /-by default represent home
+    res.send('any mssg')
+})
+app.get('any path',(req,res)=>{
+      res.send('<button>ClickHere</button>')
+})
+app.get('*',(req,res)=>{          *--if we want that any thing we write on browser gives some mssg we use *
+      res.send('given response is not valid')
+})
+app.listen(portno.,()=>{
+      console.log("server is running at portno:4000");
+})
+
+
+----------------------------------------- 16:05:2024 ------------THURSDAY---------------------------
+
+
+Queriperameter and pathparameter
+sirf : lagane se vo pathparameter kehlata hai
+req.params=parameter for taking request from browser.
+
+req.query jha bhi questuon mark ho
+Templating    =: ejs librery
+
+
+
+-----------------------------------17-05-2024------------FRIDAY------------------------------------
