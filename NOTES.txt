@@ -193,6 +193,71 @@ req.params=parameter for taking request from browser.
 req.query jha bhi questuon mark ho
 Templating    =: ejs librery
 
+-------------------------------------------------------------------------------------------------
+      PATHPARAMETER WORKS EXPLANATION
+
+const express = require('express')
+let  app = express()
+let port = 5000
+app.get('/:r/:a',(req,res)=>{
+      let {r,a} = req.params
+ console.log(req.params,"hilo")
+       res.send(r,a)
+ })
+
+ app.listen(port,()=>{
+    console.log('server is running in high Speed')
+    })
+   
+ {1}. Whereever you see /: that means os a pathParameter
+
+ The req.params object allows you to capture dynamic values from the URL path. It is useful when you have route patterns
+  with placeholders, such as “/users/:a” or “/products/:productId”.
+--------------------------------------------------------------------------------------------------------------
+//  QUERY PARAMETER WORKS EXPLANATION
+
+const express = require('express')
+let  app = express()
+let port = 5000
+
+app.get('/search',(req,res)=>{
+   let {firstName,lastName} = req.query
+    res.send(`${firstName}  ${lastName}`)
+})
+
+app.listen(port,()=>{
+console.log('first')
+})
+
+{1}. Whereever you see /: that means os a pathParameter
+{2}. In Browser search :- locolhost:{portno}/search?firstName=Krishna&LastName=Singh
+
+------------------------------------------------------17-05-2024----------------------------------------------
 
 
------------------------------------17-05-2024------------FRIDAY------------------------------------
+------EJS Templating-librery ----------
+
+For installation of this Templating librery write : npm i ejs
+Then create a New folder with the name of : VIews
+views naaam k folder ke andar index.ejs naam ki file banegi.
+{1} .ejs is compulsary.
+
+
+
+-------------------------------- index.js -------------------me banegi-----------------------------------------
+
+
+{app.set} method takes anty Stringvalue and one more any value
+
+// app .set('view engine','ejs')
+// app.get('/',(req,res)=>{
+//    res.render('index')
+// })
+
+// app.listen(port,()=>{
+// console.log('server is running : 5000')
+// })
+
+
+
+-----------------------------------17-05-2024------------FRIDAY-------------------------------------------------
