@@ -259,5 +259,56 @@ views naaam k folder ke andar index.ejs naam ki file banegi.
 // })
 
 
+render me file or data dono jate hai
+send me 
+
+Render : render() function is typically used in web development frameworks like Express.js in Node. 
+         js applications to render HTML templates and pass data to them. 
 
 -----------------------------------17-05-2024------------FRIDAY-------------------------------------------------
+
+Calculation could be possible in ejs librery.
+
+
+const express = require('express')
+let app = express()
+let port = 5000
+let arr = ['hello','hyyy','byy!!','a' ,'b']
+
+app .set('view engine','ejs')
+app.use(express.static('public'))
+app.get('/',(req,res)=>{
+   res.render('index')
+})
+
+// app.get('/random',(req,res)=>{
+//    let a = Math.floor(Math.random()*100)
+//    res.render('random',{a})
+// })
+
+app.get('/random',(req,res)=>{
+   let a = Math.floor(Math.random()*100)
+   res.render('random',{arr})
+})
+
+
+app.listen(port,()=>{
+console.log('server is running : 5000')
+})
+
+
+---------- this could be possible on this -------------------------------
+
+{1}: <h3> <%= 5+5 %>   method 
+
+{2} : <!-- <h3> <%= a %> </h3> -->
+
+{3} : <!-- <% if(a%2==0) { %>
+    <h2> even number</h2>
+     <% }
+     else
+     { %>
+    <h3> odd number </h3>
+    <% } %> -->
+
+  ---------------------------------------18-05-2024 -------------------------------SATURDAY-----------------------

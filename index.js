@@ -148,15 +148,34 @@
 // })
 
 
+// const express = require('express')
+// let  app = express()
+// let port = 5000
+// app .set('view engine','ejs')
+// app.get('/',(req,res)=>{
+// res.render('index')
+// })
+// app.get('/random',(req,res)=>{
+// res.render('random')
+// })
+// app.listen(port,()=>{
+//    console.log('server is running : 5000')
+//    })
+
+// ----------------------------- in this ejs libarey calculation should be possible --------------------------------------------
+   
+
 const express = require('express')
 let  app = express()
 let port = 5000
-app.set()
+app .set('view engine','ejs')
 app.get('/',(req,res)=>{
 res.render('index')
+})
+app.get('/random',(req,res)=>{
+   let a = Math.floor(Math.random()*100)
+res.render('random',{a})
 })
 app.listen(port,()=>{
    console.log('server is running : 5000')
    })
-   
-
