@@ -297,18 +297,109 @@ console.log('server is running : 5000')
 })
 
 
----------- this could be possible on this -------------------------------
+---------- this could be possible on this ---------------------------------------
 
-{1}: <h3> <%= 5+5 %>   method 
+{1} : <h3> <%= 5+5 %>   method 
 
 {2} : <!-- <h3> <%= a %> </h3> -->
 
 {3} : <!-- <% if(a%2==0) { %>
-    <h2> even number</h2>
-     <% }
-     else
-     { %>
-    <h3> odd number </h3>
-    <% } %> -->
+      <h2> even number</h2>
+      <% }
+      else
+      { %>
+      <h3> odd number </h3>
+      <% } %> -->
 
-  ---------------------------------------18-05-2024 -------------------------------SATURDAY-----------------------
+  ---------------------------------------18-05-2024 -------------------------------SATURDAY-----------------  
+
+ Predefined Syntax : Include function ; two files and more with the help of this could me merge together.
+                     MAke a folder in views folder with the name of partials , The name partials is important.
+                     Then MAke two files in inner of partials folder whos name is Header.ejs & Footer.ejs.
+
+                                                   views
+                                                    ↓
+                                                             |→ Header.ejs
+                                                  Partials →
+                                                             |→ Footer.ejs
+
+   The whole work should be done in index.ejs.     {This could be not imp you can choose any file but route of this file could be imp.}                                                     
+
+ Example :<%- include ('./partials/header') %>
+          <h1>HEllo new revesion</h1>
+          <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, asperiores laudantium. Libero quisquam corporis natus
+              eveniet, ut suscipit, non dolores iste dicta, nam quibusdam doloribus?
+          </p>
+          <%- include ('./partials/footer')%>
+
+index.js : server and route 
+  
+     const express = require('express')
+     let  app = express()
+     let port = 5000
+     app .set('view engine','ejs')
+     app.get('/',(req,res)=>{
+     res.render('index')
+     })
+     app.listen(port,()=>{
+     console.log('server is running : 5000')
+     })
+
+
+------------------------- WITH THE HELP OF GET AND POST METHOD FORM SHOULD BE MADE ----------------------------------- 
+ 
+ Form are made on index.ejs. 
+
+   With get method form should be made  
+
+
+    <fieldset>
+        <legend> GET</legend>
+        <form action="/user" method="GET">
+        <label for="txt1">NAME :- </label>
+       <input name="name" type="text"  maxlength="15" size="19" id="txt1" placeholder="name">
+       <br>
+       <br>
+       <label for="tx1">E-Mail:- </label>
+        <input name="email" type="email" id="tx1" placeholder="email">
+        <br>
+        <br>
+        <label name="password" for="po">PASSWORD:- </label>
+        <input type="password" id="po"  placeholder="password">
+        <br>
+        <br>
+        <button type="submit">submit</button>
+    </form>
+    </fieldset>
+
+
+
+
+
+
+    <fieldset>
+        <legend>POST</legend>
+        <form action="/user" method="GET">
+        <label for="txt1">NAME :- </label>
+       <input name="name" type="text"  maxlength="15" size="19" id="txt1" placeholder="name">
+       <br>
+       <br>
+       <label for="tx1">E-Mail:- </label>
+        <input name="email" type="email" id="tx1" placeholder="email">
+        <br>
+        <br>
+        <label name="password" for="po">PASSWORD:- </label>
+        <input type="password" id="po"  placeholder="password">
+        <br>
+        <br>
+        <button type="submit">submit</button>
+    </form>
+    </fieldset>
+ 
+
+
+
+ 
+
+
