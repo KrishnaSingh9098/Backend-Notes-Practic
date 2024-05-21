@@ -373,9 +373,28 @@ index.js : server and route
     </form>
     </fieldset>
 
+ROute file form this form:
+   
+   const express = require('express')
+     let  app = express()
+     let port = 5000
+     app .set('view engine','ejs')
+     app.get('/user',(req,res)=>{
+     let {name,email,password} = req.query
+     res.send(`${name} and ${email} and  ${password}`)
+     res.send('send')
+     })
+     app.listen(port,()=>{
+     console.log('server is running : 5000')
+     })
+    
+This type of form which was made with get method is not properly save.
 
 
+-------------------------------------------------------------------------------------------------------
+POST METHOD FORM :
 
+ONE METHOD INSTALLATION : app.use(express.urlencoded({extended:true}))
 
 
     <fieldset>
@@ -396,6 +415,35 @@ index.js : server and route
         <button type="submit">submit</button>
     </form>
     </fieldset>
+
+
+ GET vs POST  vs BODY 
+
+
+POSt Method : When we uSe postb method data sho
+
+     undefinesd value of body is undefined.
+
+
+
+
+ -----------------------------------Postman----------------------
+
+ Postman is a testing tool for backend code  / backend API testing.
+
+ another software is  : thunder client : extension from vs code.
+
+form data paane ke liye  : app.use(express.urlencoded({extended:true}))
+
+
+ one more thing install : app.use(express.json()).    
+
+
+ -------------------------------------------------- MONDAY ------------------------------ 20/05/2024 -------------------------------------------
+
+ HOw CRUD operation should perform and data how can update delete creatre and read in  browser.
+
+Redirect method are use to directly open the webpage .
  
 
 

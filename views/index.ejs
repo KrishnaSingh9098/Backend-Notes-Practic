@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,13 +6,59 @@
     <title>Document</title>
 </head>
 <body>
-<%- include ('./partials/header') %>
-<h1>HEllo new revesion</h1>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, asperiores laudantium. Libero quisquam corporis natus
-     eveniet, ut suscipit, non dolores iste dicta, nam quibusdam doloribus?
-</p>
-<%- include ('./partials/footer')%>
-
+    <fieldset>
+        <legend> GET</legend>
+        <form action="/user" method="GET">
+        <label for="txt1">NAME :- </label>
+       <input name="name" type="text"  maxlength="15" size="19" id="txt1" placeholder="name">
+       <br>
+       <br>
+       <label for="tx1">E-Mail:- </label>
+        <input name="email" type="email" id="tx1" placeholder="email">
+        <br>
+        <br>
+        <label  for="po">PASSWORD:- </label>
+        <input name="password" type="password" id="po"  placeholder="password">
+        <br>
+        <br>
+        <button type="submit">submit</button>
+    </form>
+    </fieldset>
+    <fieldset>
+        <legend>POST</legend>
+        <form action="/user" method="GET">
+        <label for="txt1">NAME :- </label>
+       <input name="name" type="text"  maxlength="15" size="19" id="txt1" placeholder="name">
+       <br>
+       <br>
+       <label for="tx1">E-Mail:- </label>
+        <input name="email" type="email" id="tx1" placeholder="email">
+        <br>
+        <br>
+        <label name="password" for="po">PASSWORD:- </label>
+        <input type="password" id="po"  placeholder="password">
+        <br>
+        <br>
+        <button type="submit">submit</button>
+    </form>
+    </fieldset>
 </body>
-</html>
+</html> -->
+
+
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <h2> CRUD</h2>
+   <% for( let i of comments) { %>
+            <h2> id : <%= i.id %></h2>
+        <h3> name : <%= i.username %></h3>
+        <h4> comment : <%= i.comment %></h4>
+        <% } %>
+ </body>
+ </html>

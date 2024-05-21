@@ -165,17 +165,73 @@
 // ----------------------------- in this ejs libarey calculation should be possible --------------------------------------------
    
 
-const express = require('express')
-let  app = express()
-let port = 5000
-app .set('view engine','ejs')
-app.get('/',(req,res)=>{
-res.render('index')
-})
-app.get('/random',(req,res)=>{
-   let a = Math.floor(Math.random()*100)
-res.render('random',{a})
-})
-app.listen(port,()=>{
-   console.log('server is running : 5000')
-   })
+// const express = require('express')
+// let  app = express()
+// let port = 5000
+// app .set('view engine','ejs')
+// app.use(express.urlencoded({extended:true}))
+// app.get('/',(req,res)=>{
+// res.render('index')
+// })
+// app.get('/random',(req,res)=>{
+//    let a = Math.floor(Math.random()*100)
+// res.render('random',{a})
+// })
+
+// app.get('/user',(req,res)=>{
+//    let {name,email,password} = req.query
+//    res.send(`${name} and ${email} and  ${password}`)
+// res.send('send')
+// })
+
+// app.post((req,res)=>{
+//    console.log(req.body,"hillo")
+// res.send('formmmm!!!')
+// })
+// app.listen(port,()=>{
+//    console.log('server is running : 5000')
+//    })
+
+
+
+//                                           20-05-2024                    Monday                                                         //
+
+
+const  express = require('express')
+let app = express()
+let comments = [
+    {
+        id:0,
+        username:"Sam",
+        comment:"chitkara is a nice university 0"
+    },
+    {
+        id:1,
+        username:"g2",
+        comment:"chitkara is a nice university 1"
+    },
+    {
+        id:2,
+        username:"vohra",
+        comment:"chitkara is a nice university 2"
+    }
+  ]
+app.set('view engine','ejs')
+app.use(express.urlencoded({extended:true}))
+  app.get('/blogs',(req,res)=>{
+res.render('index',{comments})
+  })
+
+  app.get('/blogs/new',(req,res)=>{
+res.render('new')
+  })
+  app.post('/blogs',(req,res)=>{
+    // console.log(req.body,'hlo')
+    let {username,comment} = req.body
+    comments.push({username,comment})
+    res.redirect('/blogs')
+    // res.send('body')
+    })
+  app.listen(7000,()=>{
+console.log('server on demand')
+  })
