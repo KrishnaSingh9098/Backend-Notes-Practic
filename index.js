@@ -198,7 +198,9 @@
 
 
 const  express = require('express')
+let methodOverride = require('method-override')
 let app = express()
+app.use(methodOverride('_method'))
 let comments = [
     {
         id:0,
@@ -232,6 +234,30 @@ res.render('new')
     res.redirect('/blogs')
     // res.send('body')
     })
+
+    app.get('/blogs/:id',(req,res)=>{
+      let {id} =req.params
+      console.log(id,"ididid")
+      let data =comments.find((data)=>{return data.id==id})
+
+      res.render('edit',{data})
+     })
+
+     app.patch('/blogs/:id',(req,res)=>{
+      let {id} =req.params
+   console.log(id,'eje')
+   console.log(req.body)
+   let {username,comment} = req.body
+   let data =comments.find((data)=>{return data.id==id})
+   console.log(data,"data")
+   
+   data.comment=comment
+   data.username=username
+   res.redirect('/blogs')
+   //res.send('eheheh')
+   })
+   
+    
   app.listen(7000,()=>{
 console.log('server on demand')
   })

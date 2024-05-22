@@ -446,6 +446,23 @@ form data paane ke liye  : app.use(express.urlencoded({extended:true}))
 Redirect method are use to directly open the webpage .
  
 
+ ------------------- REStful architecture are used -----------------
+
+ Restful routing is actually a proper way to write a code : 
+
+for patch method : npm i method-override .
+
+IMP lines
+
+let methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+
+
+"/blogs/<%=data.id%>?_method=PATCH"
+
+
+
+
 
 
  
