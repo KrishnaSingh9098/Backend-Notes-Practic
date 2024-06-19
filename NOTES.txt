@@ -1,6 +1,7 @@
                                                           11-05-2024
 
 
+
      //---Accessing file using file system in Synchronous manner
  ----------------------------------------------------------
  let fs=require('fs')
@@ -465,6 +466,222 @@ app.use(methodOverride('_method'))
 
 
 
+----------------------------------------------------- 23-05-2024 -------------------------------------------------------------
+
+Koi cheej server se delete karana pade tab = server se htana ho tab . 
+
+
+--------------------------- csr  vs ssr  ---------------------------------------------
+
+let express = require('express')
+
+let app = express()
+app.use('/mew',express.static('public'))
+ 
+app.get('/',(req,res)=>{
+res.send('hello')
+})
+
+app.listen(5000,()=>{
+console.log('server runs properly')
+})
+
+  # : NOrmal html page ko renderinmg without ejs 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Static siteeee</h2>
+</body>
+</html>
+
+
+
+
+------------------------------------  30/05/2024 ------------------------------------------------
+
+DATABASE_MONGOOSE : MONGO DB
+
+ 1. show Dbs
+2. use mydata
+3. show collections
+4. bd.users.find()
+----------------------------------------- 04/06/2024---------------------------------------------
+                                                     DATABASE_CONNECTIVITY
+                                   [ : How DataBase should be connected with express. : ]
+
+  Command For INstallation   : NPM i Mongooose
+
+let express = require('express')
+let app =express()
+let mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost:27017/mydata').then(()=>{
+console.log('db')
+}).catch((err)=>{
+
+    console.log(err,"nhi mila hai")
+})
+
+app.get('/',(req,res)=>{
+    res.send('haha')
+})
+app.listen(5000,()=>{
+    console.log('hello')
+})
+
+
+( 1.)  model ek feature h jiske throuw  collection create hota hai .
+
+---------------------------------------------------------------------------------------------------------------------
+
+# Some work for learn as like ;
+
+1.0 => How cookie can be Set.
+2.0 => HOw bcrypt can be used for password Encryption and De-Cryption.
+3.0 => What is JWT And HOW Data can be Store and Take Outside.  { JsonWebToken}
+
+
+----------------------------- Authentication  SYSTEM---------------------------------------  06/06/24---------------------
+
+Authentication : user ko profile dene se pehle ye check krna hota h ki user hai kaun.
+                 so ni that condition they give us id proof .
+
+AUTHENTICATION  :  Server har baar bhool jata hai ki aap kaun ho , ab kyuki server bhool jata hai aap kaun ho to har baar
+                    wo har kaam kre liye aapse puchega aap kaun ho. 
+
+ For INSTALLATION  : NPM I bcrypt
+
+
+ 
+
+#index.js     wala code 
+------------------------
+
+let express = require('express')
+let app =express()
+let bcrypt = require('bcrypt')
+let mongoose = require('mongoose')
+  let User =require('./model/model')
+mongoose.connect('mongodb://localhost:27017/fsd78').then(()=>{
+console.log('db')
+}).catch((err)=>{
+
+    console.log(err,"nhi mila hai")
+})
+app.use(express.json())
+
+app.post('/signup',async(req,res)=>{
+console.log(req.body)
+let userData = req.body
+let {email} = req.body
+let user = await User.findOne({email})
+if(user){
+    res.send('user already exist')
+}
+else{
+    //res.send('createed')
+    userData.password = await bcrypt.hash(userData.password,10)
+    console.log(userData.password)
+}
+//res.send('hehehe')
+})
+
+app.listen(5000,()=>{
+    console.log('hello')
+})
+
+---------------------------------------------------------------------------------
+
+Model folder ke ander model.js naam ki file banegi.
+
+#Model.js       wala code 
+---------------------------
+
+
+
+let mongoose = require('mongoose')
+let userSchema = mongoose.Schema({
+    firstName: {
+        Type : String,
+        
+    },
+    lastName: {
+        type: String,
+        
+    },
+    email : {
+        type : String
+    },
+    password:{
+        type:String
+    }
+})
+
+
+
+let User = mongoose.model('User',userSchema)
+module.exports=User
+
+
+ AUTHENTICATION  :  Server har baar bhool jata hai ki aap kaun ho , ab kyuki server bhool jata hai aap kaun ho to har baar
+                    wo har kaam kre liye aapse puchega aap kaun ho.
+
+
+FOR SavinG DATA : let dbUser =  new User  ({
+        firstName : userData.firstName,
+        lastName : userData.lastName,
+        email : userData.email,
+        password : userData.password
+    })
+
+    await dbUser.save()
+    res.send('user acc should be Created')
+
+# -    For Generating token two parameters should be used.
+
+-------------------------------------------- COOKIE------------------------------------------
+
+COOKIES AND SESSION CONCEPT : PEhli baar login krne me browser me ek string save ho jti hain.
+
+ For INSTALLATION  : NPM I cookie-parser
+
+ In code we have to right : const cookieParser = require('cookie-parser')
+                          :  app.use(cookieParser())  // for see response also in colsole window.
+
+1.  set krne ke liye RES use hota hai or Read krne ke liye REQ
+
+--------------------------------------------- A-U-T-H-O-R-I-Z-A-T-I-O-N -------------------------------------
+
+
+
+
+AUTHORIZATION :  authorized to perform some tasks which are only allowed to be executed  by the admin.
+[ Generally ] : kis cheej ko krne k access h or kis cheej ko krne k access nhi hai
+
+Authorization header ko alg se chipkana padta hai request me / Cookies by default aa jti hai.
+
  
 
 
+
+-----------------------------------------    15/26/2024  --------------------------------
+
+NPM I AXIOS 
+
+for server connection: fronted to backend
+
+NPM I cors  : for restriction allowance with the help of cors.
+
+
+
+
+--- login per server se kuch return krena ; with token fronted per localstorege me store krna ---------
+
+
+
+                                                    middleware : 18/06/2024  / lecture 10
