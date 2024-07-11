@@ -510,7 +510,7 @@ DATABASE_MONGOOSE : MONGO DB
  1. show Dbs
 2. use mydata
 3. show collections
-4. bd.users.find()
+4. db.users.find()
 ----------------------------------------- 04/06/2024---------------------------------------------
                                                      DATABASE_CONNECTIVITY
                                    [ : How DataBase should be connected with express. : ]
@@ -684,4 +684,27 @@ NPM I cors  : for restriction allowance with the help of cors.
 
 
 
-                                                    middleware : 18/06/2024  / lecture 10
+                                         middleware : 18/06/2024  / lecture 10
+
+
+
+
+
+
+---------------------------------------    SOCKET -----------------------------------------
+
+
+
+
+
+
+
+
+
+-----------------------------------------  project  ---------------------------------------
+
+
+MODEL   VIEW   CONTROLLER   = mvc 
+
+
+zomato
